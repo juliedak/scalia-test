@@ -3,13 +3,13 @@
   <%= f.text_field :name %>
   <%= f.label :size %>
   <%= f.number_field :size %>
-    <%= f.submit %>
+  <%= f.submit %>
 <% end %>
 
-<!--   <%#= form_for [@product, @price] do |f| %>
-    <%#= f.label :currency %>
-    <%#= f.select :score, [["Eur"], ["Dollar"]]%>
-    <%#= f.label :value %>
-    <%#= f.number_field :value %>
-    <%#= f.submit %>
-  <#% end %> -->
+<%= form_for [@price] do |f| %>
+<%= f.label :currency %>
+<%= f.select :score, [["Eur"], ["Dollar"]]%>
+<%= f.label :value %>
+<%= f.number_field :value %>
+<%= f.submit %>
+<% end %>
