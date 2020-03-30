@@ -1,9 +1,14 @@
-<h1>List of products</h1>
+<h1>My products</h1>
 
 <ul>
   <% @products.each do |product|  %>
-  <li> <%= product.name %></li>
-  <li><%= product.size %></li>
-  <li><%= product.prices %></li>
-<% end %>
+    <li> <%= product.name %></li>
+    <li><%= product.size %></li>
+    <% product.prices.each do |price| %>
+      <li><%= price.currency %></li>
+      <li><%= price.value %></li>
+    <% end %>
+  <% end %>
 </ul>
+
+<%#= link_to "Add a product", new_user_product_path(@product) %>
