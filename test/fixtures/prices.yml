@@ -2,6 +2,8 @@
 
 one:
   amount: 1
+  product: one
 
 two:
   amount: 1
+  product: two

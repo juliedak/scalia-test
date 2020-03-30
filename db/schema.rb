@@ -10,34 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_30_104252) do
+ActiveRecord::Schema.define(version: 2020_03_30_113401) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "prices", force: :cascade do |t|
     t.integer "amount"
+    t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_prices_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
     t.string "title"
-    t.bigint "price_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["price_id"], name: "index_products_on_price_id"
+    t.index ["user_id"], name: "index_products_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
-    t.bigint "product_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["product_id"], name: "index_users_on_product_id"
   end
 
-  add_foreign_key "products", "prices"
-  add_foreign_key "users", "products"
+  add_foreign_key "prices", "products"
+  add_foreign_key "products", "users"
 end

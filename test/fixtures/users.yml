@@ -3,9 +3,7 @@
 one:
   first_name: MyString
   last_name: MyString
-  product: one
 
 two:
   first_name: MyString
   last_name: MyString
-  product: two

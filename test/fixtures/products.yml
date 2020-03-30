@@ -2,8 +2,8 @@
 
 one:
   title: MyString
-  price: one
+  user: one
 
 two:
   title: MyString
-  price: two
+  user: two
