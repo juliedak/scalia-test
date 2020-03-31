@@ -21,7 +21,7 @@ class PricesController < ApplicationController
     if @price.save
       redirect_to user_products_path
     else
-      redirect_to new_user_product_path
+      render 'products/new'
     end
   end
 

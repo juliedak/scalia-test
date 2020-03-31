@@ -6,16 +6,16 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
+    @user = current_user
     @product = Product.new
   end
 
   def create
     @product = Product.new(product_params)
-    @user = User.find(params[:user_id])
-    @product.user = @user
+    @user = current_user
+    @product.user = current_user
     if @product.save
-      redirect_to user_products_path
+      redirect_to user_products_path(@products)
     else
       render :new
     end
